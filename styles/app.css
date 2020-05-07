@@ -1,0 +1,35 @@
+html, body {
+    overflow-y: visible;
+    -webkit-user-select: text
+}
+
+.svgDiv {
+    border-bottom: black solid 1px;
+}
+
+.canvasDiv {
+    border-bottom: black solid 1px;
+}
+
+#container {
+    display: table;
+    margin: 0 auto;
+}
+
+.text_highlight {
+    position: absolute;
+    background: #ffbc0052;
+}
+
+.antDiv {
+    cursor: pointer;
+}
+
+.bibref {
+    color: #3c763d;
+}
+
+.page {
+    zoom: 0.5;
+    -moz-transform: scale(0.5);
+}
