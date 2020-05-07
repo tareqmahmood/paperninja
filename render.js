@@ -82,8 +82,8 @@ function onRenderComplete() {
     // show previous annotations
     loadAnnotation();
 
-    // scrapReferenceInfo();
-    // console.log('Reference extracted');
+    scrapReferenceInfo();
+    console.log('Reference extracted');
 
     // replaceBibTagsWithLinks();
     // console.log('Bibtags placed');

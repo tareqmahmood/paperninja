@@ -90,6 +90,7 @@ const createHighlightContainer = function() {
             // clearing interval tree
             for(let i = 0; i < highlightDivContainer.children.length; i++) {
                 rectIntervalTree.removeById(highlightDivContainer.children[i].id);
+                document.getElementById("save").style.color = '#c2c121';
             }
             // removing from html
             highlightDivContainer.remove();

@@ -60,6 +60,8 @@ function saveAnnotation() {
         'utf-8');
 }
 
+// export const saveAnnotation = saveAnnotation;
+
 
 function loadAnnotation() {
     const fs = require('fs');
@@ -74,4 +76,21 @@ function loadAnnotation() {
             highlightRects(textHighlight["rects"]);
         }
     }
+}
+
+
+function promptForAnnotationSave() {
+    const {dialog} = require('electron').remote;
+    //Minimum options object
+    let options  = {
+        buttons: ["Yes", "No"],
+        message: "Save current annotations?"
+    };
+    //Synchronous usage
+    dialog.showMessageBox(options).then(response => {
+        let choice = options.buttons[response.response];
+        if(choice === "Yes") {
+            saveAnnotation();
+        }
+    });
 }
