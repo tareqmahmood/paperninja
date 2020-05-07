@@ -11,12 +11,12 @@ A research paper reading tool for researchers.
 - [x] Text selection
 - [x] Open paper from disk
 - [ ] Zoom in, out
-- [ ] Fit to screen
+- [x] Fit to screen
 - [x] Text highlighting
 - [ ] Square highlight
-- [ ] Text annotation
-- [ ] Annotation save
-- [ ] Citation hovering
+- [x] Text annotation
+- [x] Annotation save
+- [x] Citation hovering
 - [ ] Image crop and pin
 
 
@@ -37,11 +37,12 @@ Font awesome: https://fontawesome.com/v4.7.0/get-started/
 
 ## Developer Notes
 
+### Switched to Electron.js
+
+I first wanted to use this as an chrome app. But later switched to Electron.js. So, some of the code is very weirdly written. I plan to modify them soon. So, please pardon the bad practices.
+
+
+
 ### Modifications of pdf.js
 
 `renderTextLayer()` was not accessible to `text_layer_builder.js`. So I modified `pdf.js` to expose this function to all as `publicRenderTextLayer()`. Also changed `text_layer_builder.js` to call this new function.
-
-
-### Allow Text Selection in Chrome Apps
-
-Changed `app.css`. Reason: https://stackoverflow.com/questions/19149993/how-to-select-highlight-text-in-chrome-app

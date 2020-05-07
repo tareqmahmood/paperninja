@@ -17,8 +17,8 @@ function createWindow () {
     // and load the index.html of the app.
     mainWindow.loadFile('index.html');
 
-    // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    // // Open the DevTools.
+    // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
