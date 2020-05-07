@@ -1,7 +1,7 @@
 const sampleExportJson = {
     "filename": "file.pdf",
     "render_width": 1000,
-    "texthighlights": [
+    "text_highlights": [
         {
             "comment": "none",
             "rects": [
@@ -33,16 +33,20 @@ function exportAnnotationsAsJson() {
     let textHighlights = [];
     const textHighlightDivs = document.getElementsByClassName("textHighlightDiv");
     for(let textHighlightDiv of textHighlightDivs) {
-        let txtJson = {};
-        txtJson["comment"] = "none";
+        let highlightJson = {};
+        highlightJson["comment"] = "none";
+        let rectJsonS = [];
         for(let rect of textHighlightDiv.children) {
+            let rectJson = {};
             for(let attrib of ["top", "left", "width", "height"]) {
-                txtJson[attrib] = parseFloat(rect.style[attrib]);
+                rectJson[attrib] = parseFloat(rect.style[attrib]);
             }
+            rectJsonS.push(rectJson);
         }
-        textHighlights.push(txtJson);
+        highlightJson["rects"] = rectJsonS;
+        textHighlights.push(highlightJson);
     }
-    json["texthighlights"] = textHighlights;
+    json["text_highlights"] = textHighlights;
     return json;
 }
 
@@ -54,4 +58,15 @@ function saveAnnotation() {
     fs.writeFileSync(currentFilePath + ANNOTATION_EXT,
         JSON.stringify(json),
         'utf-8');
+}
+
+
+function loadAnnotation() {
+    const fs = require('fs');
+    const annotationFile = currentFilePath + ANNOTATION_EXT;
+    if (fs.existsSync(annotationFile)) {
+        let json = JSON.parse(fs.readFileSync('file', 'utf8'));
+        let renderWidth = json["render_width"];
+
+    }
 }

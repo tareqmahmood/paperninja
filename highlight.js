@@ -129,6 +129,30 @@ const highlightSelectedText = function (allSelectedRects, scrollOffset) {
 
 
 /**
+ * Highlight selected portion
+ * @param {rects} Rects
+ */
+const highlightRects = function (rects) {
+    // contain all highlight in a div
+    let highlightDivContainer = createHighlightContainer();
+
+    // process all rects one by one
+    let numRects = rects.length;
+    for(let i = 0; i < numRects; i++) {
+        let rect = rects.item(i);
+
+        let id = Math.floor(Math.random() * 1e10).toString(16);
+        if(rectIntervalTree.insertSkipOverlap(rect, id)) {
+            let highlightDiv = createHighlightDiv(rect, id);
+            highlightDivContainer.appendChild(highlightDiv);
+        }
+    }
+    annotation.appendChild(highlightDivContainer);
+    document.getElementById("save").style.color = '#16a720';
+};
+
+
+/**
  * @param {MouseEvent} mouseEvent
  */
 const textSelected = function (mouseEvent) {
