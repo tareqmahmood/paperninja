@@ -65,8 +65,13 @@ function loadAnnotation() {
     const fs = require('fs');
     const annotationFile = currentFilePath + ANNOTATION_EXT;
     if (fs.existsSync(annotationFile)) {
-        let json = JSON.parse(fs.readFileSync('file', 'utf8'));
+        console.log('loading annotation');
+
+        let json = JSON.parse(fs.readFileSync(annotationFile, 'utf8'));
         let renderWidth = json["render_width"];
 
+        for(let textHighlight of json["text_highlights"]) {
+            highlightRects(textHighlight["rects"]);
+        }
     }
 }

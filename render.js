@@ -6,13 +6,6 @@ let renderTaskCompleted = 0;
 let renderScale = 2;
 
 
-function clearScene() {
-    container.innerHTML = '';
-    annotation.innerHTML = '';
-    eventLayer.innerHTML = '';
-}
-
-
 function createElementsForPDF (numPages) {
     let container = document.getElementById("container");
 
@@ -62,10 +55,19 @@ function createElementsForPDF (numPages) {
 }
 
 
+function clearScene() {
+    container.innerHTML = '';
+    annotation.innerHTML = '';
+    eventLayer.innerHTML = '';
+}
+
+
 function onRenderBegin() {
     references_raw = [];
     references_map = new Map();
     references_trie = new Trie();
+
+    rectIntervalTree = new RectIntervalTree();
 
     numPages = 0;
     renderTaskCompleted = 0;
@@ -76,6 +78,10 @@ function onRenderBegin() {
 
 function onRenderComplete() {
     console.log('All Done');
+
+    // show previous annotations
+    loadAnnotation();
+
     // scrapReferenceInfo();
     // console.log('Reference extracted');
 

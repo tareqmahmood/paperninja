@@ -1,4 +1,4 @@
-const rectIntervalTree = new RectIntervalTree();
+let rectIntervalTree = new RectIntervalTree();
 
 
 /**
@@ -139,7 +139,7 @@ const highlightRects = function (rects) {
     // process all rects one by one
     let numRects = rects.length;
     for(let i = 0; i < numRects; i++) {
-        let rect = rects.item(i);
+        let rect = rects[i];
 
         let id = Math.floor(Math.random() * 1e10).toString(16);
         if(rectIntervalTree.insertSkipOverlap(rect, id)) {
