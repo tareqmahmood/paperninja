@@ -21,15 +21,10 @@ html, body {
     background: #ffbc0052;
 }
 
-.antDiv {
+.textHighlightDiv {
     cursor: pointer;
 }
 
 .bibref {
     color: #3c763d;
-}
-
-.page {
-    zoom: 0.5;
-    -moz-transform: scale(0.5);
 }

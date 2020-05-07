@@ -95,5 +95,18 @@ class RectIntervalTree {
         this.count--;
         return true;
     }
+
+
+    // exportAsJson() {
+    //     let mainJson = {};
+    //     mainJson["filename"] = 'file.pdf';
+    //     mainJson["renderScale"] = renderScale;
+    //     let rects = {};
+    //     this.domRects.forEach(function(rect, id){
+    //         rects[id] = rect;
+    //     });
+    //     mainJson["rects"] = JSON.stringify(rects);
+    //     return mainJson;
+    // }
 }
 

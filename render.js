@@ -1,4 +1,7 @@
 let numPages = 0;
+let currentFileName = "";
+let currentFilePath = "";
+let currentRenderWidth = 0;
 let renderTaskCompleted = 0;
 let renderScale = 2;
 
@@ -85,7 +88,8 @@ function onRenderComplete() {
 
 
 async function renderPage(page) {
-    let desiredWidth = APP_WIDTH * 0.8;
+    let desiredWidth = APP_WIDTH * APP_FILL_AREA;
+    currentRenderWidth = desiredWidth;
     let viewport = page.getViewport({scale: 1,});
     let scale = desiredWidth / viewport.width;
     viewport = page.getViewport({scale: renderScale * scale,});
@@ -165,6 +169,11 @@ async function renderPage(page) {
 const loadPdfInApp = function(url) {
     clearScene();
     onRenderBegin();
+
+    const path = require('path');
+    currentFileName = path.parse(url).base;
+    currentFilePath = url;
+
     pdfjsLib.getDocument(url)
         .promise
         .then(file => {

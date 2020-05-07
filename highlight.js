@@ -74,8 +74,8 @@ function createButtonGroup(mouseEvent) {
  */
 const createHighlightContainer = function() {
     let highlightDivContainer = document.createElement("div");
-    highlightDivContainer.setAttribute("class", "antDiv");
-    highlightDivContainer.setAttribute("id", "antDiv-" +
+    highlightDivContainer.setAttribute("class", "textHighlightDiv");
+    highlightDivContainer.setAttribute("id", "textHighlightDiv-" +
         Math.floor(Math.random() * 1e10).toString(16));
 
     highlightDivContainer.onclick = function(event) {
@@ -124,6 +124,7 @@ const highlightSelectedText = function (allSelectedRects, scrollOffset) {
         }
     }
     annotation.appendChild(highlightDivContainer);
+    document.getElementById("save").style.color = '#c2c121';
 };
 
 

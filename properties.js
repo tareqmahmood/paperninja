@@ -1,5 +1,5 @@
 const APP_WIDTH = window.innerWidth;
-const APP_HEIGHT = window.innerHeight;
+const APP_FILL_AREA = 0.8;
 
 let container = document.getElementById("container");
 let annotation = document.getElementById("annotation");

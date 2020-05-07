@@ -25,27 +25,27 @@ document.getElementById("openfileinput").onchange = event => {
 // screenshot
 document.getElementById("screenshot").onclick = function(mouseEvent) {
     console.log('taking screenshot');
+    mouseEvent.preventDefault();  // to stop going to stop
     takeScreenShot(mouseEvent);
 };
 
 // zoom in
-document.getElementById("zoomin").onclick = function() {
+document.getElementById("zoomin").onclick = function(mouseEvent) {
     console.log('zoom in');
+    mouseEvent.preventDefault();  // to stop going to stop
 };
 
 // zoom out
-document.getElementById("zoomout").onclick = function() {
+document.getElementById("zoomout").onclick = function(mouseEvent) {
     console.log('zoom out');
+    mouseEvent.preventDefault();  // to stop going to stop
 };
 
 // save
-document.getElementById("save").onclick = function() {
+document.getElementById("save").onclick = function(mouseEvent) {
     console.log('Saving');
-    const fs = require('fs');
-    try {
-        fs.writeFileSync()
-    } catch (error) {
-
-    }
+    mouseEvent.preventDefault();  // to stop going to stop
+    saveAnnotation();
+    document.getElementById("save").style.color = '#16a720';
 };
 
